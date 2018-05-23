@@ -12,6 +12,14 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ *
+ * In this class you will set up the base url which will be used to make the api call.
+ * Here we will create a new object of Retrofit using builder and call the factory adapter where you point down
+ * to the Rxjava
+ *
+ */
+
 public class GitHubClient {
 
     private static final String GITHUB_BASE_URL = "https://api.github.com/";
@@ -35,6 +43,12 @@ public class GitHubClient {
         }
         return instance;
     }
+
+    /**
+     * Here we are also using observable which actually point to the Interface GithubService
+     * @param userName will be username that will be searched from github
+     * @return starred repos of the particular user
+     */
 
     public rx.Observable<List<GithubRepos>> getStarredRepos(@NonNull String userName) {
         return gitHubService.getStarredRepositories(userName);

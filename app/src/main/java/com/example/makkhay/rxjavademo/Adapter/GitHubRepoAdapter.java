@@ -19,6 +19,12 @@ import java.util.List;
 import static android.content.ContentValues.TAG;
 
 
+/**
+ * An adapter class that extends the baseadapter class. This class acts as a
+ * bridge between the UI components and the data source that fill data into the UI Component
+ *
+ */
+
 public class GitHubRepoAdapter extends BaseAdapter {
 
     private List<GithubRepos> gitHubRepos = new ArrayList<>();
@@ -26,7 +32,7 @@ public class GitHubRepoAdapter extends BaseAdapter {
     @Override public int getCount() {
         return gitHubRepos.size();
     }
-
+    // Will get the item with the position
     @Override public GithubRepos getItem(int position) {
         if (position < 0 || position >= gitHubRepos.size()) {
             return null;
@@ -39,16 +45,16 @@ public class GitHubRepoAdapter extends BaseAdapter {
         return position;
     }
 
+
     @Override public View getView(int position, View convertView, ViewGroup parent) {
         final View view = (convertView != null ? convertView : createView(parent));
         final GitHubRepoViewHolder viewHolder = (GitHubRepoViewHolder) view.getTag();
         viewHolder.setGitHubRepo(getItem(position));
         return view;
     }
-
+    // this method will populate the list when there is data
     public void setGitHubRepos(@Nullable List<GithubRepos> repos) {
         if (repos == null) {
-
             return;
             }
         gitHubRepos.clear();
@@ -64,11 +70,19 @@ public class GitHubRepoAdapter extends BaseAdapter {
         return view;
     }
 
+    /**
+     *     add and notify that data has been changed.
+     *     Very important to prevent crashes
+
+     */
     public void add(GithubRepos gitHubRepo) {
         gitHubRepos.add(gitHubRepo);
         notifyDataSetChanged();
     }
 
+    /**
+     * This is a class to initialize all the views such as Textview
+     */
     private static class GitHubRepoViewHolder {
 
         private TextView textRepoName;

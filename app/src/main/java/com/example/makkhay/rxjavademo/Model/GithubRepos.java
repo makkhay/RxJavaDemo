@@ -1,5 +1,9 @@
 package com.example.makkhay.rxjavademo.Model;
 
+/**
+ * Just a regular model class , nothing fancy :)
+ */
+
 public class GithubRepos {
     public final int id;
     public final String name;
