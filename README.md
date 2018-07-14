@@ -11,3 +11,7 @@ git clone https://github.com/makkhay/RxJavaDemo.git
 
 Open the app folder using android studio 
 
+## Having trouble ?
+In case you have any feedback or questions, feel free to open a new issues on this repo or reach out to me @makkhay on Github. Thanks
+
+
